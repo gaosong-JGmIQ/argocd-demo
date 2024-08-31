@@ -1,4 +1,6 @@
 # overlays/dev/kustomization.yaml
+namespace: dev
+
 resources:
   - ../../base
 

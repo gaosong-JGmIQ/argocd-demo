@@ -1,4 +1,6 @@
 # overlays/prod/kustomization.yaml
+namespace: prod
+
 resources:
   - ../../base
 
