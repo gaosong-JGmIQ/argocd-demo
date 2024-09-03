@@ -3,6 +3,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: docker.io/qsfda/nginx
+    argocd-image-updater.argoproj.io/my-app.update-strategy: latest
 spec:
   template:
     spec:
