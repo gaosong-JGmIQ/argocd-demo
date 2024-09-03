@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:1.19
+          image: qsfda/nginx:1.19

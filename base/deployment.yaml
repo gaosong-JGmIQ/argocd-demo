@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx:latest # 这个版本会在不同环境中覆盖
+          image: qsfda/nginx # 这个版本会在不同环境中覆盖
           ports:
             - containerPort: 80
           volumeMounts:
