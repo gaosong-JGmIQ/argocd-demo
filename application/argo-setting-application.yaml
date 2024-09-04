@@ -7,6 +7,11 @@ metadata:
   # 删除 argo 应用的时候同时删除部署的集群资源
   # finalizers:
   #   - resources-finalizer.argocd.argoproj.io
+  annotations:
+    # 在同步过程中，如果有需要删除的资源，它们将被最后删除。
+    argocd.argoproj.io/sync-options: PruneLast=true
+    # ArgoCD 检查 Git 仓库是否有变更的过程的间隔，单位秒
+    argocd.argoproj.io/refresh: "60"
 spec:
   project: default
   source:
