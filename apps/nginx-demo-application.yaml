@@ -7,6 +7,11 @@ metadata:
   # 删除 argo 应用的时候同时删除部署的集群资源
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: qsfda/nginx
+    argocd-image-updater.argoproj.io/qsfda-nginx.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/git-branch: master
 spec:
   project: default
   source:
@@ -15,6 +20,7 @@ spec:
     path: overlays/demo
   destination:
     server: https://kubernetes.default.svc
+    namespace: demo
   syncPolicy:
     automated:
       prune: true
