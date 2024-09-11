@@ -13,12 +13,14 @@ metadata:
     # 设置 qsfda/nginx 镜像的更新策略为 'latest'，即总是使用最新的标签
     # argocd-image-updater.argoproj.io/「image name」.update-strategy
     argocd-image-updater.argoproj.io/qsfda-nginx.update-strategy: latest
+    # 指定标签前缀
+    argocd-image-updater.argoproj.io/<image-name>.tag-prefix: "dev-"
     # 指定更新后如何写回变更。这里使用 Git 方式，凭证存储在 argocd 命名空间的 git-creds secret 中
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
     # 指定要更新的 Git 分支为 master
     argocd-image-updater.argoproj.io/git-branch: master
-    # 使用正则表达式匹配以 dev- 结尾的标签
-    argocd-image-updater.argoproj.io/qsfda_nginx.tag-match: ^dev-[0-9]+\.[0-9]+\.[0-9]+(-[0-9]+)?$
+    # ArgoCD Image Updater 检测 docker 仓库是否有变化的间隔，单位秒
+    argocd-image-updater.argoproj.io/poll-interval: "60"
     # 在同步过程中，如果有需要删除的资源，它们将被最后删除。
     argocd.argoproj.io/sync-options: PruneLast=true
     # ArgoCD 检查 Git 仓库是否有变更的过程的间隔，单位秒
