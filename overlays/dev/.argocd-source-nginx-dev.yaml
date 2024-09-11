@@ -1,3 +1,0 @@
-kustomize:
-  images:
-  - qsfda/nginx:1.23.2
