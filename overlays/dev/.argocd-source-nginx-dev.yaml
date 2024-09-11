@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - qsfda/nginx:1.23.2
+  - qsfda/nginx:dev-1.22.0
