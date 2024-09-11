@@ -18,7 +18,7 @@ metadata:
     # 指定要更新的 Git 分支为 master
     argocd-image-updater.argoproj.io/git-branch: master
     # 使用正则表达式匹配以 dev- 结尾的标签
-    argocd-image-updater.argoproj.io/qsfda-nginx.tag-match: ^dev-[0-9]+\.[0-9]+\.[0-9]$
+    argocd-image-updater.argoproj.io/qsfda_nginx.tag-match: ^dev-[0-9]+\.[0-9]+\.[0-9]+(-[0-9]+)?$
     # 在同步过程中，如果有需要删除的资源，它们将被最后删除。
     argocd.argoproj.io/sync-options: PruneLast=true
     # ArgoCD 检查 Git 仓库是否有变更的过程的间隔，单位秒
